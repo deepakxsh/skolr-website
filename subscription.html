@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subscription - SKOLR INDIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Condiment&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            grotesk: ['Anton', 'sans-serif'],
+            condiment: ['Condiment', 'cursive'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+          },
+          colors: {
+            background: '#010828',
+            cream: '#EFF4FF',
+            neon: '#6FFF00',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background-color: #010828;
+      color: #EFF4FF;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.01);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .texture-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      background-image: url('/texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      mix-blend-mode: lighten;
+      opacity: 0.6;
+    }
+   .texture-overlay { display: none; }
+
+    .nav-link { transition: color 0.2s; }
+    .nav-link:hover { color: #6FFF00; }
+
+    .hidden-mobile { display: none; }
+    @media (min-width: 1024px) { .hidden-mobile { display: flex; } }
+    .shown-mobile { display: flex; }
+    @media (min-width: 1024px) { .shown-mobile { display: none; } }
+    .nav-hidden-mobile { display: none; }
+    @media (min-width: 1024px) { .nav-hidden-mobile { display: block; } }
+
+    .footer-bar {
+      background-color: #000000;
+      color: #EFF4FF;
+      text-align: center;
+      padding: 24px;
+      font-family: 'Anton', sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: auto;
+      z-index: 100;
+    }
+
+    .pricing-card {
+      padding: 50px 40px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 0 50px rgba(255,255,255,0.05);
+      backdrop-filter: blur(16px);
+      text-align: center;
+      width: 100%;
+      max-width: 450px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(111,255,0,0.15);
+    }
+
+    .pricing-card-highlight {
+      border: 1px solid rgba(111,255,0,0.5);
+      background: rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="texture-overlay"></div>
+
+  <video autoplay loop muted playsinline style="position:fixed; top:0; left:0; width:100%; height:100vh; object-fit:cover; z-index:-1;">
+    <source src="./background/back-1.mp4" type="video/mp4" />
+  </video>
+  <div style="position:fixed; top:0; left:0; width:100%; height:100vh; background: rgba(1,8,40,0.6); z-index:-1;"></div>
+
+  <!-- Header -->
+  <div style="position:relative; z-index:10; width:100%; max-width:1831px; margin:0 auto; padding: 28px 24px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+      <a href="index.html" style="font-family:'Anton',sans-serif; font-size:24px; text-transform:uppercase; color:#EFF4FF; letter-spacing:0.08em; text-decoration:none;">
+        SKOLRindia
+      </a>
+      <nav class="liquid-glass nav-hidden-mobile" style="border-radius:32px; padding:28px 64px;">
+        <ul style="display:flex; gap:3.5rem; list-style:none; margin:0; padding:0;">
+          <li><a href="index.html" class="nav-link" style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; color:#EFF4FF; text-decoration:none; letter-spacing:0.08em;">Home</a></li>
+          <li><a href="contact.html" class="nav-link" style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; color:#EFF4FF; text-decoration:none; letter-spacing:0.08em;">Contact</a></li>
+          <li><a href="subscription.html" class="nav-link" style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; color:#EFF4FF; text-decoration:none; letter-spacing:0.08em; color:#6FFF00;">Subscription</a></li>
+          <li><a href="ai.html" class="nav-link" style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; color:#EFF4FF; text-decoration:none; letter-spacing:0.08em;">AI</a></li>
+          <li><a href="faq.html" class="nav-link" style="font-family:'Anton',sans-serif; font-size:16px; text-transform:uppercase; color:#EFF4FF; text-decoration:none; letter-spacing:0.08em;">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="hidden-mobile" style="width:180px;"></div>
+    </div>
+    
+    <div class="shown-mobile" style="justify-content:center; gap:16px; margin-top:2rem; flex-wrap:wrap;">
+      <a href="index.html" class="liquid-glass nav-link" style="padding:12px 24px; border-radius:1rem; text-decoration:none; font-family:'Anton',sans-serif; font-size:14px; letter-spacing:0.08em;">Home</a>
+      <a href="contact.html" class="liquid-glass nav-link" style="padding:12px 24px; border-radius:1rem; text-decoration:none; font-family:'Anton',sans-serif; font-size:14px; letter-spacing:0.08em;">Contact</a>
+      <a href="subscription.html" class="liquid-glass nav-link" style="padding:12px 24px; border-radius:1rem; text-decoration:none; font-family:'Anton',sans-serif; font-size:14px; letter-spacing:0.08em; color:#6FFF00;">Subscription</a>
+      <a href="ai.html" class="liquid-glass nav-link" style="padding:12px 24px; border-radius:1rem; text-decoration:none; font-family:'Anton',sans-serif; font-size:14px; letter-spacing:0.08em;">AI</a>
+      <a href="faq.html" class="liquid-glass nav-link" style="padding:12px 24px; border-radius:1rem; text-decoration:none; font-family:'Anton',sans-serif; font-size:14px; letter-spacing:0.08em;">FAQ</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 10; padding: 4rem 2rem;">
+    
+    <h1 style="font-family:'Anton',sans-serif; font-size:56px; text-transform:uppercase; margin-bottom:10px; letter-spacing:0.05em; text-align:center;">PLANS & PRICING</h1>
+    <p style="font-family:monospace; font-size:18px; color:#EFF4FF; opacity:0.8; margin-bottom:60px; text-align:center;">Simple, transparent pricing to modernize your school.</p>
+    
+    <div style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center; width:100%;">
+      
+      <!-- Plan 1 -->
+      <div class="liquid-glass pricing-card">
+        <h2 style="font-family:monospace; font-size:16px; color:#EFF4FF; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:20px; opacity:0.8;">Per Student Plan</h2>
+        <div style="font-family:'Anton',sans-serif; font-size:72px; color:#6FFF00; line-height:1; margin-bottom:10px;">₹50</div>
+        <div style="font-family:monospace; font-size:14px; color:#EFF4FF; opacity:0.6; margin-bottom:30px; text-transform:uppercase;">per student / month</div>
+        
+        <ul style="list-style:none; padding:0; margin:0 0 40px 0; font-family:monospace; font-size:14px; color:#EFF4FF; text-align:left; display:flex; flex-direction:column; gap:16px;">
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Full Timetable Generation
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Student Portals Access
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Email & App Notifications
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Basic Support
+          </li>
+        </ul>
+
+        <button class="liquid-glass" style="width:100%; padding:16px; border-radius:16px; font-family:'Anton',sans-serif; font-size:18px; color:#010828; background:#6FFF00; border:none; cursor:pointer; text-transform:uppercase; letter-spacing:0.05em; transition:transform 0.2s;">
+          Get Started
+        </button>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="liquid-glass pricing-card pricing-card-highlight">
+        <h2 style="font-family:monospace; font-size:16px; color:#EFF4FF; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:20px; opacity:0.8;">Per School Plan</h2>
+        <div style="font-family:'Anton',sans-serif; font-size:72px; color:#EFF4FF; line-height:1; margin-bottom:10px;">₹40K</div>
+        <div style="font-family:monospace; font-size:14px; color:#EFF4FF; opacity:0.6; margin-bottom:30px; text-transform:uppercase;">per school / month</div>
+        
+        <ul style="list-style:none; padding:0; margin:0 0 40px 0; font-family:monospace; font-size:14px; color:#EFF4FF; text-align:left; display:flex; flex-direction:column; gap:16px;">
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Unlimited Students & Staff
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Advanced Customization
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Dedicated Server Resources
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6FFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            24/7 Priority Support
+          </li>
+        </ul>
+
+        <button class="liquid-glass" style="width:100%; padding:16px; border-radius:16px; font-family:'Anton',sans-serif; font-size:18px; color:#EFF4FF; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); cursor:pointer; text-transform:uppercase; letter-spacing:0.05em; transition:background 0.2s;">
+          Contact Sales
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-bar">
+    SKOLR INDIA – All Rights Reserved – 2026
+  </footer>
+
+</body>
+</html>
